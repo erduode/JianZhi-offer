@@ -27,5 +27,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    v = s.isValid("]")
+    v = s.isValid("[]")
     print(v)

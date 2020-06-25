@@ -18,6 +18,8 @@ class Solution:
         :rtype: int
         """
         # heapq.nlargest(k, nums)输出：前n个最大元素
+        # 时间复杂度 : {O}(N \log k)O(Nlogk)。
+        # 空间复杂度 : {O}(k)O(k)，用于存储堆元素。
         return heapq.nlargest(k, nums)[-1]
 
 if __name__ == '__main__':

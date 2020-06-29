@@ -1,20 +1,18 @@
 '''
- 二叉树的最大深度
+构建树
 '''
-
-
 class TreeNode:
     def __init__(self, x = -1):
         self.val = x
         self.left = None
         self.right = None
 
-
 class Tree():
     # 树类
     def __init__(self):
         self.root = TreeNode()
 
+    # 层次遍历加入
     def add(self, data):
         # 为树加入节点
         node = TreeNode(data)
@@ -36,18 +34,6 @@ class Tree():
                     myQueue.append(treeNode.left)
                     myQueue.append(treeNode.right)
 
-    def maxDepth(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
-        if not root:
-            return 0
-        # 关于为什么返回值为整数：因为上一句，root不存在返回0，所以叶子结点因为下面的语句+1返回1
-        left = self.maxDepth(root.left) + 1
-        right = self.maxDepth(root.right) + 1
-        return max(left, right)
-
     def DFS(self, root):  # 递归实现深度优先遍历
         if root == None:
             return
@@ -55,14 +41,3 @@ class Tree():
         self.DFS(root.left)
         self.DFS(root.right)
 
-
-
-
-if __name__ == '__main__':
-    datas = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    tree = Tree()  # 新建一个树对象
-    for data in datas:
-        tree.add(data)  # 逐个加入树的节点
-
-    # print(tree.maxDepth(tree.root))
-    tree.DFS(tree.root)
